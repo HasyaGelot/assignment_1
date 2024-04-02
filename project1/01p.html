@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Web tech L05 - CSS Flexbox</title>
+	<link rel="stylesheet" href="flexbox_example.css">
+</head>
+<body>
+	<header>
+		<h1>Week 5 - CSS Page Layout</h1>
+	</header>
+	<nav>
+		<a href="index.html">Home</a>
+		<a href="flexbox.html">Flexbox</a>
+		<a href="grid.html">grid</a>
+	</nav>
+	<main>
+	
+		<section>
+			<header>
+				<h2>CSS Flexbox</h2>
+			</header>
+			<p>
+				Flexbox is a layout model that is based in one dimension instead of two(like with Grid Layout). This means when placing an object you have to specifiy one dimension at a time.
+			</p>
+		</section>
+		
+		<section>
+			<header>
+				<h3>example 1</h3>
+			</header>
+			<p>
+				In this example we are creating a series of horizontaly placed boxes that will be rearranged when the page window is resized
+			</p>
+			
+			<figure>
+				<figcaption>html code</figcaption>
+				<img src="/flexbox_css_example.PNG">
+			</figure>
+			<p>note that the classes flex container and flex item are simply to tie the css to these element. The names of the classes dont effect anything as the functionality comes from the CSS</p>
+			
+			<figure>
+				<figcaption>css code</figcaption>
+				<img src="/flexbox_css_example2.PNG"/>
+			</figure>
+			<p>Most of the css here is just to make the boxes look nice. The properties that effects the flexbox are:</p>
+			<ul>
+				<li><i>display: flex;</i> this shows that the display mode is flex</li>
+				<li><i>flex-flow: row wrap;</i> this set the direction of the flex to row (placing each element in a row) and tells the container to wrap
+												(keeps the elements inside the container and in the correct order)</li>
+				<li><i>justify-content: space-around;</i> this tells the container to add space around each element inside it</li>
+			</ul>
+			<article>
+				<h4>demo</h4>
+				<ul class="flex-container">
+					<li class="flex-item">1</li>
+					<li class="flex-item">2</li>
+					<li class="flex-item">3</li>
+					<li class="flex-item">4</li>
+					<li class="flex-item">5</li>
+					<li class="flex-item">6</li>
+				</ul>
+			</article>	
+		</section>
+		
+		<section>
+			<header>
+				<h3>example 2</h3>
+				<h4>creating a flexable UI</h4>
+			</header>
+			<p> This example shows how you can use flexbox to make a nice UI</p>
+			
+			<figure>
+				<figcaption>html code</figcaption>
+				<img src="/flexbox_css_example3.PNG"/>
+			</figure>
+			
+			<figure>
+				<figcaption>css code</figcaption>
+				<img src="/flexbox_html_example.PNG"/>
+			</figure>
+			<p>you can see we have added the rule <i>@media</i> which allows us to change the style of the elements dependent on the width of the screen. we are 
+				also using the new rule <i>order</i> which allows us to effect the order the elements are placed onto the screen e.g. for this example if the screen is 
+				large (800px) aside-1 is placed before main, however if the screen is smaller (600px) the elements are placed in the order specified in the html (main, aside-1, aside-2).
+				the final new rule is <i>flex</i> which shows how the elements grow in comparison to other elements in the flex container</p>
+			
+			<h4>demo</h4>
+			<div class="wrapper">
+				<header class="header">Header</header>
+				<article class="main">
+					<p> Pellentesque habitant morbi tristique senectus et netus et malesuada fames
+						ac turpis egestas . Vestibulum tortor quam , feugiat vitae , ultricies eget ,
+						tempor sit amet , ante . Donec eu libero sit amet quam egestas semper . Aenean
+						ultricies mi vitae est . Mauris placerat eleifend leo .</p>
+				</article>
+				<aside class="aside aside-1">Aside 1</aside>
+				<aside class="aside aside-2">Aside 2</aside>
+				<footer class="footer">Footer</footer>
+			</div>
+			
+		</section>
+		
+		<section>
+			<header>
+				<h3>example 3</h3>
+				<h4>creating a menubar</h4>
+			</header>
+			
+			<figure>
+				<figcaption>http code</figcaption>
+				<img src="/flexbox_html_example2.PNG"/>
+			</figure>
+			
+			<figure>
+				<figcaption>css code</figcaption>
+				<img src="/flexbox_html_example3.PNG"/>
+			</figure>
+			<p>you can see in this code we have it so that: while the screen is greater than 800px each element is justified to the end of the flex(end of the line),
+				while the screen is less than 800px the links are justified to be equally spaced and while the screen is less than 600px 
+				the flex direction becomes column so the links are placed on top of each other </p>
+			
+			<h4>demo</h4>
+			<ul class="navigation">
+				<li><a href="#">home</a></li>
+				<li><a href="#">about</a></li>
+				<li><a href="#">products</a></li>
+				<li><a href="#">contact</a></li>
+			</ul>
+				
+		</section>
+		
+		
+		<section>
+			<header>
+				<h3>Further Notes</h3>
+			</header>
+			
+			<ul>
+				<li>The other options for flex-flow directions are : <i>collumn</i> where the elements are orginised virtically</li>
+				<li>The other options for flex-flow wrap are:
+					<ul>
+						<li><i>no-wrap</i> - this means that the elements are all forced on one line </li>
+						<li><i>wrap-reverse</i> - this means that the order of the lines the elements are placed on is reversed</li>
+					</ul></li>
+				<li>the options for the <i>flex</i> property (in order) are: 
+					<ul>
+						<li><i>flex-grow</i>- a number that shows how much a element should stretch compared to other elements i.e if one element is flex : 3 0 0 and others are flex : 1 the first will be 3 times larger</li>
+						<li><i>flex-shrink</i>- how much an element will shrink compared to others </li>
+						<li><i>flex-basis</i>- the baseline length of the item</li>
+					</ul></li>
+			</ul>
+			
+		</section>
+		
+	</main>
+</body>
+</html>
